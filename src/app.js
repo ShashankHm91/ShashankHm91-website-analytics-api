@@ -50,7 +50,7 @@ app.get("/", (req, res) => {
 });
 
 
-// Swagger API Documentation
+// Swagger API
 setupSwagger(app);
 
 module.exports = app;
