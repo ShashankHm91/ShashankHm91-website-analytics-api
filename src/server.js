@@ -6,9 +6,12 @@ const MONGO_URI = process.env.MONGO_URI;
 
 // Connect to MongoDB
 mongoose
-  .connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(MONGO_URI)
   .then(() => console.log("✅ MongoDB Connected"))
-  .catch((err) => console.error("❌ MongoDB Connection Error:", err));
+  .catch((err) => {
+    console.error("❌ MongoDB Connection Error:", err);
+    process.exit(1);
+  });
 
-// Server
+// Start the server after DB is connected
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
