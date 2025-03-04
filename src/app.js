@@ -35,6 +35,10 @@ app.use("/api/analytics", analyticsRoutes);
 app.use("/api/auth", authRoutes);
 
 // Health Check Route
+app.get("/healthz", (req, res) => {
+    res.status(200).json({ status: "healthy" });
+});
+
 app.get("/", (req, res) => {
     res.send(
         `<h4>Website Analytics API is running 🚀</h4><br>
