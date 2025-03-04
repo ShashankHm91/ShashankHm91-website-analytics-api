@@ -7,7 +7,7 @@ WORKDIR /app
 # Copy package.json and package-lock.json first (for caching dependencies)
 COPY package*.json ./
 
-# Install dependencies (only production dependencies)
+# Install dependencies (including dotenv)
 RUN npm install --omit=dev
 
 # Copy the rest of the application files
